@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple database example</title>
+</head>
+<body>
+    <h1>Simple database example</h1>
+
+    {% if user %}
+        <h2>Hello, {{user.name}}!</h2>
+
+        {% if message %}<h3>{{message}}</h3>{% endif %}
+
+        <form method="post" action="/secret">
+            <input type="number" name="guess" placeholder="Enter your number">
+            <button>Submit</button>
+        </form>
+    {% endif %}
+
+    {% if not user %}
+        <form method="post" action="/login">
+            <input type="text" name="user-name" placeholder="Enter your name"><br>
+            <input type="email" name="user-email" placeholder="Enter your email address"><br>
+
+            <button>Submit</button>
+        </form>
+    {% endif %}
+
+</body>
+</html>
